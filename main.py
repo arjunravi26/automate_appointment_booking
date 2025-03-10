@@ -54,7 +54,7 @@ try:
     submit_btn.click()
     time_slot_page = driver.find_elements(By.CLASS_NAME, 'date-slot')
     print(time_slot_page)
-    avaliable_slots = []
+    available_slots  = []
     for slot in time_slot_page:
         day = slot.find_element(By.CLASS_NAME, 'date-day').text
         day_times = slot.find_elements(By.CLASS_NAME, 'time-options')
@@ -62,9 +62,9 @@ try:
         for dt in day_times:
             d_times.append(dt.text)
 
-        avaliable_slots.append([day, d_times])
+        available_slots .append([day, d_times])
 
-    print(avaliable_slots)
+    print(available_slots)
 
 
 except Exception as e:
