@@ -68,6 +68,7 @@ Formatter Agent
        |
        v
 Formatted Appointment Availability
+```
 
 ### Conclusion
 
