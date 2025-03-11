@@ -4,8 +4,9 @@ class LocatorManager:
         "name_input": (By.ID, "name"),
         "email_input": (By.ID, "email"),
         "phone_input": (By.ID, "phone"),
-        "service_dropdown": (By.ID, "service"),
-        "submit_button": (By.TAG_NAME, "button"),
+        "service_select": (By.ID, "service"),
+        "book_appointment_button": (By.TAG_NAME, "button"),
+        "book_button": (By.TAG_NAME, "button"),
         "time_slot": (By.CLASS_NAME, "date-slot"),
         "day_text": (By.CLASS_NAME, "date-day"),
         "time_options": (By.CLASS_NAME, "time-options")
