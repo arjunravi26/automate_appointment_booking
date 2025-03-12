@@ -28,15 +28,15 @@ def map_steps_to_elements(steps: list, element_attributes: list) -> list:
         f"Given the following JSON array of steps:\n{json.dumps(steps)}\n\n"
         f"and the following JSON array of element attributes extracted from a form:\n{json.dumps(element_attributes)}\n\n"
         "For each step, determine the most appropriate element from the element attributes based on the field name. "
-        "Then provide a mapping for each step with the corresponding element's HTML tag and the best locator. "
+        "Then provide a mapping for each step in the with the corresponding element's HTML tag and the best locator. "
         "The locator should be chosen based on uniqueness, prioritizing the 'id' attribute first, then 'name', then 'class'. "
         "The locator must be in the format that accept by selenium. and ouput loactor as json like by for indicate attribute and value for attribute value"
-        "Return a JSON array(not any other things like heading or any other things.) where each element is an object with the keys 'action', 'value', 'tag', and 'locator'."
+        "Return a JSON array(not any other things like heading or any other things.) where each element is an object with the keys 'action', 'value', 'required','field_name', 'tag', and 'locator'."
         "Output only valid JSON, without any extra text."
     )
     model = create_model()
     agent = Agent(model=model)
-    response = agent().run(prompt)
+    response = agent.run(prompt)
     print("Agent response:", response.content)
     try:
         mapping = json.loads(response.content)
