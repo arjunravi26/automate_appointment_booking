@@ -11,12 +11,6 @@ from utilities.agent import create_model
 load_dotenv()
 
 
-def agent():
-    """Function to load llm model"""
-    model_name = "llama-3.3-70b-versatile"
-    return Agent(model=Groq(id=model_name))
-
-
 def map_steps_to_elements(steps: list, element_attributes: list) -> list:
     """
     Map each step (from the appointment booking plan) with its corresponding element
@@ -40,6 +34,8 @@ def map_steps_to_elements(steps: list, element_attributes: list) -> list:
         "Return a JSON array(not any other things like heading or any other things.) where each element is an object with the keys 'action', 'value', 'tag', and 'locator'."
         "Output only valid JSON, without any extra text."
     )
+    model = create_model()
+    agent = Agent(model=model)
     response = agent().run(prompt)
     print("Agent response:", response.content)
     try:
